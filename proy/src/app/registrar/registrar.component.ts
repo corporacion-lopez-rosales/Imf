@@ -10,8 +10,10 @@ export class RegistrarComponent implements OnInit {
     username: null,
     password: null
   }
-  constructor(private AuthService: AuthService) { }
-
+  constructor(private AuthService: AuthService) {
+    
+   }
+  
   ngOnInit() {
   }
 
