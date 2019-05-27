@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import { RegistrarComponent } from './registrar/registrar.component';
-
+import { FormsModule }    from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { RegistrarComponent } from './registrar/registrar.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([

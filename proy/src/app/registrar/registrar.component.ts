@@ -6,11 +6,11 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./registrar.component.css']
 })
 export class RegistrarComponent implements OnInit {
-  credenciales ={
-    username: null,
-    password: null
+  public credenciales ={
+    username: '',
+    password: ''
   }
-  constructor(private AuthService: AuthService) {
+  constructor(private AuthService: AuthService) { 
     
    }
   

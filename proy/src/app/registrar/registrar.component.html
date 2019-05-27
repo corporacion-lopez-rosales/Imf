@@ -1,16 +1,18 @@
 <div class="form">
-  <form  class="register-form" >
+  <form  class="register-form" #formRegistro="ngForm" (ngSubmit)="imfregistrar()" >
     <p>Registro:</p>
     
-    <p>Nombre:<p>
-    <input type="text"  placeholder="nombre"  name="nombre" required  />
+    <p>UserName:</p>
+    <input type="text"  placeholder="username"  name="username" required #username="ngModel" [(ngModel)]="credenciales.username" />
     
     <p>Password:</p>
-    <input type="password"  placeholder="password"  name="password" required/>
-    
-    <p>UserName:</p>
-    <input type="text"   placeholder="username"  name="usernames" required/> 
+    <input type="password"  placeholder="password"  name="password" #password="ngModel" [(ngModel)]="credenciales.password"    required/>
     <button type="submit" value="Enviar" >create</button>
     <p class="message">Ya estas registrado <a routerLink="/login" > Iniciar sesion </a>
   </form>
 </div>
+
+
+
+
+
