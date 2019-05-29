@@ -1,17 +1,19 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <div class="login-page">
   <div class="form">
-    <form class="register-form">
-      <input type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
+    <img src="assets/img/logoCRM.png" class="img-fluid">
     <form class="login-form" (submit)="ingresar($event)">
-      <input type="text" placeholder="USUARIO" id="username"/>
-    <input type="password" placeholder="CONTRASEÑA" id="password"/>
-      <button type="submit" value="submit" >login</button>
-      <p class="message">No esta registrado?<a routerLink="/registrar">Crea una cuenta</a></p>
+      <br>
+       <input type="text" placeholder="USUARIO" id="username"/>
+       <input type="password" placeholder="CONTRASEÑA" id="password"/>
+       <select>
+          <option value="adm">Administrador</option>
+          <option value="cli">Usuario</option>
+        </select>
+        <br>
+      <br>
+      <button type="submit" value="submit" >Entrar</button>
+      <p class="message">No esta registrado? <a routerLink="/registrar">Crea una cuenta</a></p>
     </form>
   </div>
 </div>

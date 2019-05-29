@@ -3,11 +3,15 @@
     <p>Registro:</p>
     
     <p>UserName:</p>
-    <input type="text"  placeholder="username"  name="username" required #username="ngModel" [(ngModel)]="credenciales.username" />
-    
+    <input type="text" class="ng-invalid-required"  placeholder="username"  name="username" required #username="ngModel" [(ngModel)]="credenciales.username" minlength="5" maxlength="15" />
+    <div *ngIf="username.touched && !username.valid"> 
+    <div *ngIf="username.errors.requerido">Campo es requerido </div>
+    <div *ngIf="username.errors.minlength">El nombre debe tener al menos {{username.errors.minlength.requiredLength}} </div>  
+    </div>
     <p>Password:</p>
     <input type="password"  placeholder="password"  name="password" #password="ngModel" [(ngModel)]="credenciales.password"    required/>
-    <button type="submit" value="Enviar" >create</button>
+    <span *ngIf="password.touched && !password.valid"> Campo es requerido </span>
+    <button type="submit" value="Enviar">create</button>
     <p class="message">Ya estas registrado <a routerLink="/login" > Iniciar sesion </a>
   </form>
 </div>
