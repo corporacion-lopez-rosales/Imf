@@ -8,7 +8,7 @@
     right: 0;
     }
     .menu{
-    color:#ffffff;
+    color:#00000094;
     }
     
     .toolbar{
@@ -40,8 +40,22 @@
     background: #ffffff;
     }
     
-   // div{
-      //  position: relative;
-     //top: 25px;
-     //right:36%;
-   // }
+    a:visited{
+        color:transparent;
+    }
+    a:active{
+        color:transparent;
+    }
+    a:hover{
+        color: lightgreen;
+    }
+
+    .url:visited{
+        color:transparent;
+    }
+    .url:active{
+        color:transparent;
+    }
+    .url:hover{
+        color:lightgreen;
+    }
