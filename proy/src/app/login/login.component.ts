@@ -20,8 +20,6 @@ export class LoginComponent implements OnInit {
   constructor(private AuthService: AuthService) { }
 
 
-
-
 imflogin() {
   this.AuthService.imflogin().subscribe(resultado => {
    console.log(resultado[0]['username']);
@@ -34,13 +32,10 @@ imflogin() {
    });*/
   for(var i=0; i<longitud_user; i++){
     if (resultado[i]['username']==this.username && resultado[i]['password']==this.password) {
-      alert("entro al login");
-      
+      console.log('Hola mundo')
     }
   }
   });
-
-
 }
   
   ngOnInit() {

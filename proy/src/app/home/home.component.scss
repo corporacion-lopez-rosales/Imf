@@ -20,9 +20,7 @@
     }
     
     .expanded-nav {
-    border-right: 2px solid ;
     background: rgb(242, 242, 242);
-    box-shadow: 5px -1px 1px 0px
     }
     .sidenav-container {
     //background: rgba(118, 118, 118, 0.74);
@@ -46,16 +44,10 @@
     a:active{
         color:transparent;
     }
-    a:hover{
-        color: lightgreen;
-    }
 
     .url:visited{
         color:transparent;
     }
     .url:active{
         color:transparent;
-    }
-    .url:hover{
-        color:lightgreen;
     }
