@@ -1,0 +1,70 @@
+<mat-toolbar>
+  <span>Inventarios</span>
+</mat-toolbar>
+
+<mat-card>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="password">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> password </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.password}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Eliminar">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </mat-header-cell>
+      <mat-cell *matCellDef="let element">  
+        <button mat-icon-button class="delete">
+          <mat-icon >delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Modificar">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Modificar </mat-header-cell>
+      <mat-cell *matCellDef="let element">  
+        <button mat-icon-button class="delete">
+          <mat-icon >edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    
+    
+   
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>
+  
+
+
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

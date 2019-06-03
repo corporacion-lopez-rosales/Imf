@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +13,7 @@ import { FormsModule,ReactiveFormsModule}from '@angular/forms';
 import {MatButtonModule,MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule,MatRadioModule,MatCheckboxModule,MatTableModule } from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {TableSorting} from './tableta/table-sorting-example';
 
 
 @NgModule({
@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginEntroComponent,
     HomeComponent,
     RegistrarComponent,
+    TableSorting,
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,ReactiveFormsModule,
@@ -51,6 +52,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         path: '',
         component: HomeComponent
       },
+      {
+        path:'inventario',
+        component:TableSorting
+      }
       
     ])
   ],
