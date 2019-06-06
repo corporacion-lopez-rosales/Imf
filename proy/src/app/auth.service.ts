@@ -24,8 +24,11 @@ export class AuthService {
   }
 
   almacen(){
-    console.log("entra")
     return this.http.get(`${this.urlOficial}Prueba`);
+  }
+
+  login(){
+    return this.http.get(`${this.urlOficial}login`)
   }
   
 }
