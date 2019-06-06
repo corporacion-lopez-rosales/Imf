@@ -10,6 +10,8 @@ export class AuthService {
 
   public url2='https://servitek.clrswap.com/proy-servicios/index.php/Controlador_imfr/';
   
+  public urlOficial='http://crm.inmobiliariaimf.com/WebServices/index.php/';
+
   constructor(private http: HttpClient){}
 
 
@@ -18,8 +20,12 @@ export class AuthService {
   }
 
   imfregistrar(credenciales) {
-    console.log("hola 22222222");
     return this.http.post(`${this.url2}imfregistrar.php`, JSON.stringify(credenciales));    
+  }
+
+  almacen(){
+    console.log("entra")
+    return this.http.get(`${this.urlOficial}Prueba`);
   }
   
 }

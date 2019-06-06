@@ -6,16 +6,42 @@
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
     <!-- Position Column -->
-    <ng-container matColumnDef="username">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+    <ng-container matColumnDef="no_parcela">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> No.Parcela </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.no_parcela}} </mat-cell>
     </ng-container>
   
     <!-- Name Column -->
-    <ng-container matColumnDef="password">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> password </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.password}} </mat-cell>
+    <ng-container matColumnDef="tipo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.tipo}} </mat-cell>
     </ng-container>
+
+    <ng-container matColumnDef="desc_par">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.desc_par}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="noreste">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Noreste </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.noreste}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="noroeste">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Noroeste </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.noroeste}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sureste">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Sureste </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.sureste}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha_alta">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de alta </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.fecha_alta}} </mat-cell>
+    </ng-container>
+
 
     <ng-container matColumnDef="Eliminar">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </mat-header-cell>
@@ -34,9 +60,6 @@
         </button>
       </mat-cell>
     </ng-container>
-    
-    
-   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </table>
