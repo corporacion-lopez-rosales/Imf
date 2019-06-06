@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
         if (result[i]['username']==this.username && result[i]['password2']==this.password) {
           this.router.navigate(['']);
         }
+        console.log("usuario no existe")
       }
     },
     error=>{

@@ -16,7 +16,7 @@ fecha_alta:Date
 }
 @Component({
     selector: 'table-sorting-example',
-    styleUrls: ['table-sorting-example.css'],
+    styleUrls: ['table-sorting-example.scss'],
     templateUrl: 'table-sorting-example.html',
   })
 
@@ -24,7 +24,7 @@ fecha_alta:Date
 export class TableSorting implements OnInit {
   constructor(private AuthService:AuthService){  }
   informacion=null
-  displayedColumns: string[] = ['no_parcela','tipo','desc_par','noreste','noroeste','sureste','fecha_alta'];
+  displayedColumns: string[] = ['no_parcela','tipo','desc_par','noreste','noroeste','sureste','fecha_alta','Eliminar','Modificar'];
   dataSource = new Prueba(this.AuthService);
 
   ngOnInit(){
