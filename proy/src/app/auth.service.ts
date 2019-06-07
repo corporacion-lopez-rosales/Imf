@@ -6,29 +6,35 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AuthService {
 
-  public url='https://servitek.clrswap.com/proy-servicios/index.php/Controlador_imf/';
-
-  public url2='https://servitek.clrswap.com/proy-servicios/index.php/Controlador_imfr/';
-  
   public urlOficial='http://crm.inmobiliariaimf.com/WebServices/index.php/';
+  public urlAlm ="http://crm.inmobiliariaimf.com/WebServices/index.php/Almacen/"
 
   constructor(private http: HttpClient){}
 
-
-  imflogin() {
-    return this.http.get(`${this.url}imflogin`);
-  }
-
-  imfregistrar(credenciales) {
-    return this.http.post(`${this.url2}imfregistrar.php`, JSON.stringify(credenciales));    
-  }
-
+  //mostrar datos en la tabla
   almacen(){
-    return this.http.get(`${this.urlOficial}Prueba`);
+    return this.http.get(`${this.urlAlm}index`)
   }
+
+  //para registrar 
+
+  almReg(Almacen){
+    return this.http.post(`${this.urlAlm}post`,JSON.stringify(Almacen))
+  }
+
+
 
   login(){
     return this.http.get(`${this.urlOficial}login`)
+  }
+
+  registrar(usuario){
+    return this.http.post(`${this.urlOficial}Registro`,JSON.stringify(usuario))
+  }
+
+
+  almacen2(){
+    return this.http.get(`${this.urlAlm}index`)
   }
   
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
+import { Registro} from '../Modelo/Registros';
+import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
@@ -10,20 +13,25 @@ export class RegistrarComponent implements OnInit {
     username: '',
     password: ''
   }
+  public usuario:Registro;
   constructor(private AuthService: AuthService) { 
+    this.usuario= new Registro (0,7,'',0,0,0,'','','','','','',0,0,0,'');
     
    }
   
   ngOnInit() {
   }
 
-  imfregistrar(){
-    console.log("hola akjsbdosajdb");
-    this.AuthService.imfregistrar(this.credenciales).subscribe(datos => {
-      if (datos['resultado']=='OK') {
-        alert(datos['mensaje']);
-      } 
-    });
+  onSubmit(from : NgForm){
+    this.AuthService.registrar(this.usuario).subscribe(result=>{
+      console.log(result);
+      console.log('NuevoUsuario')
+    },
+    error=>{
+      console.log(<any>error)
+    }
+    )
+
   }
 
 }

@@ -1,22 +1,36 @@
+<br>
+<br>
+<br>
+
 <div class="form">
-  <form  class="register-form" #formRegistro="ngForm" (ngSubmit)="imfregistrar()" >
-    <p>Registro:</p>
+    <form  class="register-form" #formRegistro="ngForm" (ngSubmit)="onSubmit()" >
+      <p>Registro:</p>
+      
+      <p>UserName:</p>
+      <input type="text" class="ng-invalid-required"  placeholder="username"  name="username" required #username="ngModel" [(ngModel)]="usuario.username" minlength="5" maxlength="15" />
+      
     
-    <p>UserName:</p>
-    <input type="text" class="ng-invalid-required"  placeholder="username"  name="username" required #username="ngModel" [(ngModel)]="credenciales.username" minlength="5" maxlength="15" />
-    <div *ngIf="username.touched && !username.valid"> 
-    <div *ngIf="username.errors.requerido">Campo es requerido </div>
-    <div *ngIf="username.errors.minlength">El nombre debe tener al menos {{username.errors.minlength.requiredLength}} </div>  
-    </div>
-    <p>Password:</p>
-    <input type="password"  placeholder="password"  name="password" #password="ngModel" [(ngModel)]="credenciales.password"    required/>
-    <span *ngIf="password.touched && !password.valid"> Campo es requerido </span>
-    <button type="submit" value="Enviar">create</button>
-    <p class="message">Ya estas registrado <a routerLink="/login" > Iniciar sesion </a>
-  </form>
-</div>
+      <p>Password:</p>
+      <input type="password"  placeholder="password"  name="password" #password="ngModel" [(ngModel)]="usuario.password"    required/>
+     
+    <p>Nombres:</p>
+    <input type="text"  placeholder="Nombres"  name="firstname" #firstname="ngModel" [(ngModel)]="usuario.firstname"    required/>
+    
+    <p>Apellidos:</p>
+    <input type="text"  placeholder="Apellidos"  name="lastname" #lastname="ngModel" [(ngModel)]="usuario.lastname"    required/>
+      
+    <p>Correo:</p>
+    <input type="email"  placeholder="Correo"  name="email" #email="ngModel" [(ngModel)]="usuario.email"    required/>
+     
+      <p>Fecha:</p>
+    <input type="date"    name="date_added" #date_added="ngModel" [(ngModel)]="usuario.date_added"    required/>
 
-
-
-
-
+      <button type="submit" value="Enviar">create</button>
+      <p class="message">Ya estas registrado <a routerLink="/login" > Iniciar sesion </a>
+    </form>
+  </div>
+  
+  
+  
+  
+  

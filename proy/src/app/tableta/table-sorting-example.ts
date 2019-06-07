@@ -29,6 +29,13 @@ export class TableSorting implements OnInit {
 
   ngOnInit(){
     console.log(this.AuthService.almacen);
+    this.AuthService.almacen().subscribe(result=>{
+      console.log(result);
+    },
+    error=>{
+      console.log(<any>error);
+    }
+    )
   }
 
 }
