@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from '../auth.service';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 export interface Usuario {
 id:number,
@@ -22,7 +23,7 @@ fecha_alta:Date
 
 
 export class TableSorting implements OnInit {
-  constructor(private AuthService:AuthService){  }
+  constructor(private AuthService:AuthService, private routin:Router){  }
   informacion=null
   displayedColumns: string[] = ['no_parcela','tipo','desc_par','noreste','noroeste','sureste','fecha_alta','Eliminar','Modificar'];
   dataSource = new Prueba(this.AuthService);
@@ -39,7 +40,6 @@ export class TableSorting implements OnInit {
   }
 
 }
-
 
 export class Prueba extends DataSource <any>{
     constructor(private AuthService:AuthService){

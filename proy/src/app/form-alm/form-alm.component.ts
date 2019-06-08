@@ -16,6 +16,7 @@ export class FormAlmComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   onSubmit(form:NgForm){

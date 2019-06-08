@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TableSorting} from './tableta/table-sorting-example';
 import { FormAlmComponent } from './form-alm/form-alm.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FormAlmEditarComponent } from './form-alm-editar/form-alm-editar.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     RegistrarComponent,
     TableSorting,
     FormAlmComponent,
+    FormAlmEditarComponent,
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,ReactiveFormsModule,
@@ -62,6 +64,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
       {
         path:'inventario/crear',
         component:FormAlmComponent
+      },
+      {
+        path:'inventario/actualizar',
+        component:FormAlmEditarComponent
       }
       
     ])

@@ -22,6 +22,15 @@ export class AuthService {
     return this.http.post(`${this.urlAlm}post`,JSON.stringify(Almacen))
   }
 
+  almacen2(usuario){
+   console.log(usuario);
+  }
+
+  //prueba
+  obtener(datos){
+    console.log(datos);
+  }
+
 
 
   login(){
@@ -31,10 +40,5 @@ export class AuthService {
   registrar(usuario){
     return this.http.post(`${this.urlOficial}Registro`,JSON.stringify(usuario))
   }
-
-
-  almacen2(){
-    return this.http.get(`${this.urlAlm}index`)
-  }
-  
+ 
 }
