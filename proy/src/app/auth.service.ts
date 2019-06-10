@@ -6,10 +6,21 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AuthService {
 
+
+  element;
+
   public urlOficial='http://crm.inmobiliariaimf.com/WebServices/index.php/';
   public urlAlm ="http://crm.inmobiliariaimf.com/WebServices/index.php/Almacen/"
 
   constructor(private http: HttpClient){}
+  login(){
+    return this.http.get(`${this.urlOficial}login`)
+  }
+
+  registrar(usuario){
+    return this.http.post(`${this.urlOficial}Registro`,JSON.stringify(usuario))
+  }
+
 
   //mostrar datos en la tabla
   almacen(){
@@ -22,23 +33,23 @@ export class AuthService {
     return this.http.post(`${this.urlAlm}post`,JSON.stringify(Almacen))
   }
 
-  almacen2(usuario){
-   console.log(usuario);
+  almAct(prueba){
+    return this.http.post(`${this.urlAlm}almUpdate`,JSON.stringify(prueba));
   }
 
-  //prueba
-  obtener(datos){
-    console.log(datos);
-  }
+ //metodos para obtener los datos a actualizar 
+
+ getForm(reporte){
+  this.element=reporte;
+  console.log(this.element);
+}
+
+mostrarDatos(){
+  console.log(this.element);
+  return this.element;
+  
+}
 
 
-
-  login(){
-    return this.http.get(`${this.urlOficial}login`)
-  }
-
-  registrar(usuario){
-    return this.http.post(`${this.urlOficial}Registro`,JSON.stringify(usuario))
-  }
  
 }

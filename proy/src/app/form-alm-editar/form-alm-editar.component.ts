@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {NgForm}  from '@angular/forms';
-import {Almacen} from '../Modelo/Almace';
+import {AlmaceAct} from '../Modelo/Almace';
 
 @Component({
   selector: 'app-form-alm-editar',
@@ -9,55 +9,65 @@ import {Almacen} from '../Modelo/Almace';
   styleUrls: ['./form-alm-editar.component.css']
 })
 export class FormAlmEditarComponent implements OnInit {
-  public Almacen:Almacen;
+  public Almacen:AlmaceAct;
 
-  constructor(public AuthService:AuthService) {
-    this.Almacen=new Almacen(0,'','','','','','','','','','','');
-  }
-  x;
-  articulo= {
+  prueba={
     id:null,
-    no_parcela:null,
+    no_parcela:null, 
     tipo:null,
     desc_par:null,
-    norte:null,
-    sur:null,
-    este:null,
-    oeste:null,
-    noreste:null,
-    sureste:null,
-    suroeste:null,
-    fecha_alta:null
+    norte:null, 
+    sur:null, 
+    este:null, 
+    oeste:null, 
+    noreste:null, 
+    noroeste:null, 
+    sureste:null, 
+    suroeste:null, 
+    fecha_alata:null
   }
+
+
+
+  constructor(public AuthService:AuthService) {
+  }
+  x;
 
 
   ngOnInit() {
-    this.articulo;
-    console.log(this.articulo);
-
-    this.AuthService.almacen().subscribe(result=>{
-      console.log(result);
-    },
-    error=>{
-      console.log(<any>error)
-    })
-
-    
+     this.x = this.AuthService.mostrarDatos();
+     this.prueba={
+      id:this.x.id, 
+      no_parcela:this.x.no_parcela,
+      tipo:this.x.tipo,
+      desc_par:this.x.desc_par, 
+      norte:this.x.norte, 
+      sur:this.x.sur,
+      este:this.x.este, 
+      oeste:this.x.oeste,
+      noreste:this.x.noreste, 
+      noroeste:this.x.noroeste, 
+      sureste:this.x.sureste, 
+      suroeste:this.x.suroeste,
+      fecha_alata:this.x.fecha_alata
+    }
   }
 
 
   
   onSubmit(form:NgForm){
-    this.AuthService.almReg(this.Almacen).subscribe(result=>{
+    this.AuthService.almReg(this.prueba).subscribe(result=>{
       console.log(result)
     },
     error=>{
       console.log(<any>error);
     }
     )
-    console.log(this.Almacen);
+    console.log(this.prueba);
   }
 
 
 
 }
+
+

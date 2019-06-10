@@ -1,43 +1,46 @@
 <div class="form">
-  <form  class="register-form" #formRegistro="ngForm" (ngSubmit)="onSubmit()" >
+  <form  class="register-form" #formEditar="ngForm" (ngSubmit)="onSubmit()" >
     <p>Registro:</p>
+    <p hidden>ID:</p>
+    <input type="number" min="0"  placeholder="Numero de parcela"  name="id"  #id="ngModel" [(ngModel)]="prueba.id"  hidden/>
+ 
     
     <p>Numero de parcela:</p>
-    <input type="number" min="0"  placeholder="Numero de parcela"  name="no_parcela"  #no_parcela="ngModel" [(ngModel)]="Almacen.no_parcela"  />
+    <input type="number" min="0"  placeholder="Numero de parcela"  name="no_parcela"  #no_parcela="ngModel" [(ngModel)]="prueba.no_parcela"  />
     
   
     <p>Tipo:</p>
-    <input type="text"  placeholder="Tipo"  name="tipo" #tipo="ngModel" [(ngModel)]="Almacen.tipo"   required/>
+    <input type="text"  placeholder="Tipo"  name="tipo" #tipo="ngModel" [(ngModel)]="prueba.tipo"   required/>
    
   <p>Descripcion:</p>
-<textarea rows="4" cols="32" name="desc_par" #desc_par="ngModel" [(ngModel)]="Almacen.desc_par" placeholder="Descripcion parcela"></textarea>      
+<textarea rows="4" cols="32" name="desc_par" #desc_par="ngModel" [(ngModel)]="prueba.desc_par" placeholder="Descripcion parcela"></textarea>      
   <p>Norte:</p>
-  <input type="text"  placeholder="Norte"  name="norte" #norte="ngModel" [(ngModel)]="Almacen.norte"   />
+  <input type="text"  placeholder="Norte"  name="norte" #norte="ngModel" [(ngModel)]="prueba.norte"   />
     
   <p>Sur:</p>
-  <input type="text"  placeholder="sur"  name="sur" #sur="ngModel" [(ngModel)]="Almacen.sur" />
+  <input type="text"  placeholder="sur"  name="sur" #sur="ngModel" [(ngModel)]="prueba.sur" />
 
 
     <p>Este:</p>
-  <input type="text"    name="este" #este="ngModel" [(ngModel)]="Almacen.este" />
+  <input type="text"    name="este" #este="ngModel" [(ngModel)]="prueba.este" />
 
 <p>Oeste:</p>
-  <input type="text"    name="oeste" #oeste="ngModel" [(ngModel)]="Almacen.oeste" />
+  <input type="text"    name="oeste" #oeste="ngModel" [(ngModel)]="prueba.oeste" />
 
 <p>Noreste:</p>
-  <input type="text"    name="noreste" #noreste="ngModel" [(ngModel)]="Almacen.noreste" />
+  <input type="text"    name="noreste" #noreste="ngModel" [(ngModel)]="prueba.noreste" />
 
   <p>Noroeste:</p>
-  <input type="text"    name="noroeste" #noroeste="ngModel" [(ngModel)]="Almacen.noroeste" />
+  <input type="text"    name="noroeste" #noroeste="ngModel" [(ngModel)]="prueba.noroeste" />
 
 <p>Sureste:</p>
-  <input type="text"    name="sureste" #sureste="ngModel" [(ngModel)]="Almacen.sureste" />
+  <input type="text"    name="sureste" #sureste="ngModel" [(ngModel)]="prueba.sureste" />
 
 <p>suroeste:</p>
-  <input type="text"    name="suroeste" #suroeste="ngModel" [(ngModel)]="Almacen.suroeste" />
+  <input type="text"    name="suroeste" #suroeste="ngModel" [(ngModel)]="prueba.suroeste" />
 
 <p>Fecha de alta:</p>
-  <input type="date"    name="fecha_alta" #fecha_alta="ngModel" [(ngModel)]="Almacen.fecha_alta" />
+  <input type="date"    name="fecha_alta" #fecha_alta="ngModel" [(ngModel)]="prueba.fecha_alta" />
 <br>
     <button type="submit" value="Enviar">create</button>
 

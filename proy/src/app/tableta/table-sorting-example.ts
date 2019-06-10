@@ -4,17 +4,7 @@ import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
-export interface Usuario {
-id:number,
-no_parcela:number,
-tipo:string,
-desc_par:string,
-noreste:string,
-noroeste:string,
-sureste:string,
-suroeste:string,
-fecha_alta:Date
-}
+
 @Component({
     selector: 'table-sorting-example',
     styleUrls: ['table-sorting-example.scss'],
@@ -37,6 +27,11 @@ export class TableSorting implements OnInit {
       console.log(<any>error);
     }
     )
+  }
+
+
+  editar(element){
+    this.AuthService.getForm(element);
   }
 
 }
