@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {NgForm}  from '@angular/forms';
-import {AlmaceAct} from '../Modelo/Almace';
 
 @Component({
   selector: 'app-form-alm-editar',
@@ -9,7 +8,6 @@ import {AlmaceAct} from '../Modelo/Almace';
   styleUrls: ['./form-alm-editar.component.css']
 })
 export class FormAlmEditarComponent implements OnInit {
-  public Almacen:AlmaceAct;
 
   prueba={
     id:null,
@@ -35,9 +33,9 @@ export class FormAlmEditarComponent implements OnInit {
 
 
   ngOnInit() {
-     this.x = this.AuthService.mostrarDatos();
-     this.prueba={
-      id:this.x.id, 
+      this.x = this.AuthService.mostrarDatos();
+      this.prueba={
+      id:this.x.id,
       no_parcela:this.x.no_parcela,
       tipo:this.x.tipo,
       desc_par:this.x.desc_par, 
@@ -51,13 +49,15 @@ export class FormAlmEditarComponent implements OnInit {
       suroeste:this.x.suroeste,
       fecha_alata:this.x.fecha_alata
     }
+    console.log(this.prueba);
   }
 
 
   
   onSubmit(form:NgForm){
-    this.AuthService.almReg(this.prueba).subscribe(result=>{
-      console.log(result)
+    this.AuthService.almAct(this.prueba).subscribe(result=>{
+      console.log(this.prueba);
+      console.log(result);
     },
     error=>{
       console.log(<any>error);

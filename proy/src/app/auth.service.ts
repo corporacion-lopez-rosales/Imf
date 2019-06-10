@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   almAct(prueba){
-    return this.http.post(`${this.urlAlm}almUpdate`,JSON.stringify(prueba));
+    return this.http.post(`${this.urlAlm}update`,JSON.stringify(prueba));
   }
 
  //metodos para obtener los datos a actualizar 
