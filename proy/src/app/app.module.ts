@@ -17,6 +17,7 @@ import {TableSorting} from './tableta/table-sorting-example';
 import { FormAlmComponent } from './form-alm/form-alm.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FormAlmEditarComponent } from './form-alm-editar/form-alm-editar.component';
+import { DatosComponent } from './datos/datos.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { FormAlmEditarComponent } from './form-alm-editar/form-alm-editar.compon
     TableSorting,
     FormAlmComponent,
     FormAlmEditarComponent,
+    DatosComponent,
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,ReactiveFormsModule,
@@ -68,6 +70,10 @@ import { FormAlmEditarComponent } from './form-alm-editar/form-alm-editar.compon
       {
         path:'inventario/actualizar',
         component:FormAlmEditarComponent
+      },
+      {
+        path:'datosGenerales',
+        component:DatosComponent
       }
       
     ])

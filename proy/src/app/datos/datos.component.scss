@@ -1,0 +1,53 @@
+.cont {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    }
+    .menu{
+    color:#00000094;
+    }
+    
+    .toolbar{
+    background: #0d6e00;
+    }
+    .mobile .toolbar {
+    position: fixed;
+    z-index: 2;
+    }
+    
+    .expanded-nav {
+    background: rgb(242, 242, 242);
+    }
+    .sidenav-container {
+    //background: rgba(118, 118, 118, 0.74);
+    flex: 1;
+    }
+    
+    .mobile .sidenav-container {
+    flex: 1 0 auto;
+    }
+    .expanded-items-list:hover{
+    background: #00000094;
+    color: white;
+    }
+    .body{
+    background: #ffffff;
+    }
+    
+    a:visited{
+        color:transparent;
+    }
+    a:active{
+        color:transparent;
+    }
+
+    .url:visited{
+        color:transparent;
+    }
+    .url:active{
+        color:transparent;
+    }

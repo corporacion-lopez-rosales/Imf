@@ -1,48 +1,93 @@
-<div class="form">
-  <form  class="register-form" #formEditar="ngForm" (ngSubmit)="onSubmit()" >
-    <p>Registro:</p>
-    <p hidden>ID:</p>
-    <input type="number" min="0"  placeholder="Numero de parcela"  name="id"  #id="ngModel" [(ngModel)]="prueba.id"  hidden/>
- 
-    
-    <p>Numero de parcela:</p>
-    <input type="number" min="0"  placeholder="Numero de parcela"  name="no_parcela"  #no_parcela="ngModel" [(ngModel)]="prueba.no_parcela"  />
-    
-  
-    <p>Tipo:</p>
-    <input type="text"  placeholder="Tipo"  name="tipo" #tipo="ngModel" [(ngModel)]="prueba.tipo"   required/>
-   
-  <p>Descripcion:</p>
-<textarea rows="4" cols="32" name="desc_par" #desc_par="ngModel" [(ngModel)]="prueba.desc_par" placeholder="Descripcion parcela"></textarea>      
-  <p>Norte:</p>
-  <input type="text"  placeholder="Norte"  name="norte" #norte="ngModel" [(ngModel)]="prueba.norte"   />
-    
-  <p>Sur:</p>
-  <input type="text"  placeholder="sur"  name="sur" #sur="ngModel" [(ngModel)]="prueba.sur" />
 
+<div class="cont">
+  <mat-toolbar class="toolbar">
+  <button mat-icon-button class="menu" (click)="snav.toggle()">
+  <mat-icon style="color: white" >menu</mat-icon>
+  </button>
+  <button mat-icon-button class="menu" style="left:95%">
+  <mat-icon style="color: white">home</mat-icon>
+  </button>
+  </mat-toolbar>
+      <mat-sidenav-container class="sidenav-container" >
+      <mat-sidenav #snav class="expanded-nav col-lg-2 col-md-2 col-sm-4 col-xs-5 p-0 " fixedTopGap="56">
+      <mat-nav-list class="expanded-list-nav">
+      <a mat-list-item class="expanded-items-list" routerLink="/"><mat-icon>check_circle_outline</mat-icon></a>
+      <a mat-list-item class="expanded-items-list" routerLink="/"><mat-icon>check_circle_outline</mat-icon></a>
+      </mat-nav-list>
+      </mat-sidenav>
+  <mat-sidenav-content class="body">
+      <div class="card">
+      <mat-toolbar>
+      <span>Actualizacio</span>
+      </mat-toolbar>
+      <div class="card-body">
+        <form #formDatosGenerales="ngForm" (ngSubmit)="onSubmit()">
+            <p>Registro:</p>
 
-    <p>Este:</p>
-  <input type="text"    name="este" #este="ngModel" [(ngModel)]="prueba.este" />
-
-<p>Oeste:</p>
-  <input type="text"    name="oeste" #oeste="ngModel" [(ngModel)]="prueba.oeste" />
-
-<p>Noreste:</p>
-  <input type="text"    name="noreste" #noreste="ngModel" [(ngModel)]="prueba.noreste" />
-
-  <p>Noroeste:</p>
-  <input type="text"    name="noroeste" #noroeste="ngModel" [(ngModel)]="prueba.noroeste" />
-
-<p>Sureste:</p>
-  <input type="text"    name="sureste" #sureste="ngModel" [(ngModel)]="prueba.sureste" />
-
-<p>suroeste:</p>
-  <input type="text"    name="suroeste" #suroeste="ngModel" [(ngModel)]="prueba.suroeste" />
-
-<p>Fecha de alta:</p>
-  <input type="date"    name="fecha_alta" #fecha_alta="ngModel" [(ngModel)]="prueba.fecha_alta" />
-<br>
-    <button type="submit" value="Enviar">create</button>
-
-  </form>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+            <p>Numero de parcela:</p>
+            <input type="number" min="0" class="equipo-dinamita" placeholder="Numero de parcela"  name="no_parcela"  #no_parcela="ngModel" [(ngModel)]="prueba.no_parcela"  />
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                <p>Tipo:</p>
+                <input type="text" class="equipo-dinamita"  placeholder="Tipo"  name="tipo" #tipo="ngModel" [(ngModel)]="prueba.tipo"/>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                <p>Descripcion:</p>
+              <textarea rows="1" cols="50" class="equipo-dinamita" name="desc_par" #desc_par="ngModel" [(ngModel)]="prueba.desc_par" placeholder="Descripcion parcela"></textarea> 
+              </div>
+            </div>
+      
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+              <p>Norte:</p>
+                <input type="text" class="equipo-dinamita"  placeholder="Norte"  name="norte" #norte="ngModel" [(ngModel)]="prueba.norte"   />
+            </div>
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+              <p>Sur:</p>
+                <input type="text" class="equipo-dinamita"  placeholder="Sur"  name="sur" #sur="ngModel" [(ngModel)]="prueba.sur"   />
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+              <p>Este:</p>
+                <input type="text" class="equipo-dinamita"   name="este" #este="ngModel" [(ngModel)]="prueba.este" />
+              </div>
+            </div>	
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+              <p>Oeste:</p>
+                <input type="text" class="equipo-dinamita"  placeholder="Oeste"  name="oeste" #oeste="ngModel" [(ngModel)]="prueba.oeste" />
+            </div>
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+              <p>Noreste:</p>
+                <input type="text" class="equipo-dinamita"  placeholder="Noreste"  name="noreste" #noreste="ngModel" [(ngModel)]="prueba.noreste" />
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+              <p>Noroeste:</p>
+                 <input type="text" class="equipo-dinamita" placeholder="Noroeste"  name="noroeste" #noroeste="ngModel" [(ngModel)]="prueba.noroeste" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+            <p>Sureste:</p>
+              <input type="text" class="equipo-dinamita" placeholder="Sureste"  name="sureste" #sureste="ngModel" [(ngModel)]="prueba.sureste" /> 
+            </div>
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+              <p>suroeste:</p>
+                <input type="text"  class="equipo-dinamita" placeholder="Suroeste"  name="suroeste" #suroeste="ngModel" [(ngModel)]="prueba.suroeste" />
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+            <p>Fecha de alta:</p>
+                <input type="date"  class="equipo-dinamita"  name="fecha_alta" #fecha_alta="ngModel" [(ngModel)]="prueba.fecha_alta" />
+              </div>
+            </div>
+			
+          <br>
+            <button type="submit" value="Enviar">create</button>
+        </form>
+    </div>
+    </div>
+</mat-sidenav-content>
+</mat-sidenav-container>
 </div>
+				  

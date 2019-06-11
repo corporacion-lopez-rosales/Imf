@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
-import { CanActivate, Router } from '@angular/router';
+import {Router } from '@angular/router';
+import {map} from 'rxjs/operators';
+import { of } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,6 +12,7 @@ export class LoginComponent implements OnInit {
       username;
       password;
       prueba=null;
+      nums = of(1,2,3);
 
   constructor(private AuthService: AuthService,private router: Router) { }
 
@@ -33,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
   
   ngOnInit() {
- 
+
   }
 
   ingresar(event){

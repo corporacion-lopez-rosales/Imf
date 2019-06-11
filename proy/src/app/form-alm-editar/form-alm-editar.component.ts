@@ -5,7 +5,7 @@ import {NgForm}  from '@angular/forms';
 @Component({
   selector: 'app-form-alm-editar',
   templateUrl: './form-alm-editar.component.html',
-  styleUrls: ['./form-alm-editar.component.css']
+  styleUrls: ['./form-alm-editar.component.scss']
 })
 export class FormAlmEditarComponent implements OnInit {
 

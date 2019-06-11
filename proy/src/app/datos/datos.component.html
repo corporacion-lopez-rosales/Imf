@@ -1,0 +1,71 @@
+<div class="cont">
+                <mat-toolbar class="toolbar">
+                <button mat-icon-button class="menu" (click)="snav.toggle()">
+                <mat-icon style="color: white" >menu</mat-icon>
+                </button>
+                <button mat-icon-button class="menu" style="left:95%">
+                <mat-icon style="color: white">home</mat-icon>
+                </button>
+                </mat-toolbar>
+                        <mat-sidenav-container class="sidenav-container" >
+                        <mat-sidenav #snav class="expanded-nav col-lg-2 col-md-2 col-sm-4 col-xs-5 p-0 " fixedTopGap="56">
+                        <mat-nav-list class="expanded-list-nav">
+                        <a mat-list-item class="expanded-items-list" routerLink="/"><mat-icon>check_circle_outline</mat-icon></a>
+                        <a mat-list-item class="expanded-items-list" routerLink="/"><mat-icon>check_circle_outline</mat-icon></a>
+                        </mat-nav-list>
+                        </mat-sidenav>
+                <mat-sidenav-content class="body">
+                        <div class="card">
+                        <mat-toolbar>
+                        <span>Datos generales</span>
+                        </mat-toolbar>
+                        <div class="card-body">
+                                        <form #formDatosGenerales="ngForm" (ngSubmit)="onSubmit()">
+										 <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Region</label>
+                                            <select class="form-control" name="region" #region="ngModel" [(ngModel)]="datos.region">
+                                            <option >......</option>
+                                            <option value="1">Saltillo</option>
+                                            <option value="2">Cadereyta</option>
+                                            <option value="3">Salinas</option>
+                                            </select>
+                                          </div>
+										    <div class="form-group">
+                                               <label for="exampleFormControlInput1">Medidas</label>
+                                               <input type="number" class="form-control" placeholder="Medidas" name="medidas" #medidas="ngModel" [(ngModel)]="datos.medidas">
+                                            </div>
+											<div class="form-group">
+                                               <label for="exampleFormControlInput1">Localizacion</label>
+                                               <input type="text" class="form-control" placeholder="Localizacion" name="localizacion" #localizacion="ngModel" [(ngModel)]="datos.localizacion">
+                                            </div>
+						                    <div class="form-group">
+                                               <label for="exampleFormControlInput1">Descripcion</label>
+					                          <textarea class="form-control"  rows="3" placeholder="Descripcion" name="descripcion" #descripcion="ngModel" [(ngModel)]="datos.descripcion"></textarea>
+                                              
+                                            </div>
+                                            <div class="form-group">
+                                             <label for="exampleFormControlSelect1">Tipo</label>
+                                                <select class="form-control"  name="tipo" #tipo="ngModel" [(ngModel)]="datos.tipo">
+                                                    <option>......</option>
+                                                    <option value="1">Fracionamiento</option>
+                                                    <option value="2">Fracionamiento/Propiedad</option>
+                                                    <option value="3">Fracionamiento/Co-Propiedad</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Valor de compra</label>
+                                                 <input type="number" class="form-control" placeholder="Valor de compra" name="valor" #valor="ngModel" [(ngModel)]="datos.valor">
+                                            </div>
+                                            <div class="form-group">
+                                                    <label for="exampleFormControlTextarea1">Provedor</label>
+                                                     <input type="text" class="form-control" placeholder="Proveedor" name="nombrePro" #nombrePro="ngModel" [(ngModel)]="datos.nombrePro">
+                                            </div>
+
+                                            <button type="submit" value="envia">Prueba</button>
+                                        </form>
+                        </div>
+                        </div>
+                </mat-sidenav-content>
+                </mat-sidenav-container>
+              </div>
+              
