@@ -18,6 +18,11 @@ export class AuthService {
     return this.http.get(`${this.urlOficial}login`)
   }
 
+  login2(){
+    return this.http.get(`${this.urlAlterno}login`)
+  }
+
+
   registrar(usuario){
     return this.http.post(`${this.urlOficial}Registro`,JSON.stringify(usuario))
   }
@@ -37,8 +42,8 @@ export class AuthService {
 
   //almacen registro 2.0
 
-  almRef2(Almacen){
-    return this.http.post(`${this.urlAlterno}almRegistro`,JSON.stringify(Almacen))
+  almReg2(Almacen){
+    return this.http.post(`${this.urlAlterno}post`,JSON.stringify(Almacen))
   }
 
 

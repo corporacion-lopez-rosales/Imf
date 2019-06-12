@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {Router } from '@angular/router';
-import {map} from 'rxjs/operators';
-import { of } from 'rxjs';
+import {DOCUMENT} from '@angular/common';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,20 +12,27 @@ export class LoginComponent implements OnInit {
       username;
       password;
       prueba=null;
-      nums = of(1,2,3);
 
-  constructor(private AuthService: AuthService,private router: Router) { }
+  constructor(private AuthService: AuthService,private router: Router ) { }
 
 
   login(){
-    this.AuthService.login().subscribe(result=>{
+    this.AuthService.login2().subscribe(result=>{
       this.prueba=Array(result);
+      console.log(this.prueba);
       console.log(this.prueba[0].length);
       var longitud_user=this.prueba[0].length;
       for(var i=0; i<longitud_user; i++){
-        if (result[i]['username']==this.username && result[i]['password2']==this.password) {
-          this.router.navigate(['']);
-          this.id(result[i]['user_id']);
+        if (result[i]['username']==this.username && result[i]['password']==this.password) {
+          
+          if(result[i]["user_group_id"]==4){
+            //window.open("http://crm.inmobiliariaimf.com/index.php?route=common/login");
+            window.location.href="http://crm.inmobiliariaimf.com/index.php?route=common/login"
+          }
+          else{
+            this.id(result[i]['user_id']);
+            this.router.navigate([''])
+          }
         }
 
       }

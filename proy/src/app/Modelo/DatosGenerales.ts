@@ -1,7 +1,7 @@
 export class DatosGenerales {
     constructor(
         public no_parcela:number,
-        public tipo:string,
+        public id_tipo:number,
         public desc_par:string,
         public norte:string,
         public sur:string,
@@ -15,6 +15,7 @@ export class DatosGenerales {
         public id_municipio:number,
         public id_proveedor:number,
         public medidas:number,
-        public user_id:number
+        public user_id:number,
+        public valor_compra:number
     ){}
 }
