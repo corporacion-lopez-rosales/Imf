@@ -25,8 +25,9 @@ export class LoginComponent implements OnInit {
       for(var i=0; i<longitud_user; i++){
         if (result[i]['username']==this.username && result[i]['password2']==this.password) {
           this.router.navigate(['']);
+          this.id(result[i]['user_id']);
         }
-        console.log("usuario no existe")
+
       }
     },
     error=>{
@@ -45,7 +46,13 @@ export class LoginComponent implements OnInit {
     const target = event.target;
     this.username = target.querySelector('#username').value;
     this.password = target.querySelector('#password').value;
+
     this.login(); 
+  }
+
+
+  id(id){
+      this.AuthService.getid(id)
   }
 
 }

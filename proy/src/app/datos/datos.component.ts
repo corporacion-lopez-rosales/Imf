@@ -9,7 +9,7 @@ import { Form } from '@angular/forms';
 })
 export class DatosComponent implements OnInit {
   public datos:DatosGenerales
-  constructor() { this.datos=new DatosGenerales(0,0,'','',0,0,'') }
+  constructor() { this.datos=new DatosGenerales(0,'','','','','','','','','','',"",0,0,0,0) }
 
   ngOnInit() {
   }

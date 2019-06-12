@@ -1,11 +1,20 @@
 export class DatosGenerales {
     constructor(
-        public region:number,
+        public no_parcela:number,
+        public tipo:string,
+        public desc_par:string,
+        public norte:string,
+        public sur:string,
+        public este:string,
+        public oeste:string,
+        public noreste:string,
+        public noroeste:string,
+        public sureste:string,
+        public suroeste:string,
+        public fecha_alta:string,
+        public id_municipio:number,
+        public id_proveedor:number,
         public medidas:number,
-        public localizacion:string, 
-        public descripcion:string, 
-        public tipo:number,
-        public valor:number, 
-        public nombrePro:string
+        public user_id:number
     ){}
 }

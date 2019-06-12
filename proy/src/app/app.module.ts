@@ -74,8 +74,7 @@ import { DatosComponent } from './datos/datos.component';
       {
         path:'datosGenerales',
         component:DatosComponent
-      }
-      
+      } 
     ])
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

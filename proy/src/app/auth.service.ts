@@ -8,7 +8,8 @@ export class AuthService {
 
 
   element;
-
+  session;
+  public urlAlterno="http://crm.inmobiliariaimf.com/WebServices/index.php/Actualizado/"
   public urlOficial='http://crm.inmobiliariaimf.com/WebServices/index.php/';
   public urlAlm ="http://crm.inmobiliariaimf.com/WebServices/index.php/Almacen/"
 
@@ -33,6 +34,15 @@ export class AuthService {
     return this.http.post(`${this.urlAlm}post`,JSON.stringify(Almacen))
   }
 
+
+  //almacen registro 2.0
+
+  almRef2(Almacen){
+    return this.http.post(`${this.urlAlterno}almRegistro`,JSON.stringify(Almacen))
+  }
+
+
+
   almAct(prueba){
     return this.http.post(`${this.urlAlm}update`,JSON.stringify(prueba));
   }
@@ -50,6 +60,15 @@ mostrarDatos(){
   
 }
 
+getid(id){
+ console.log(this.session);
+  this.session=id
+  this.showID();
+}
 
+showID(){
+  console.log(this.session)
+  return this.session;
+}
  
 }
