@@ -27,10 +27,22 @@ export class AuthService {
     return this.http.post(`${this.urlOficial}Registro`,JSON.stringify(usuario))
   }
 
+    
 
   //mostrar datos en la tabla
   almacen(){
     return this.http.get(`${this.urlAlm}index`)
+  }
+
+  //mostrar datos chidos de tabla oc_colin
+  almacen2(){
+    return this.http.get(`${this.urlAlterno}datos`);
+  }
+
+  //Datos Completos para editar
+
+  almacen3(){
+    return this.http.get(`${this.urlAlterno}tabla`)
   }
 
   //para registrar 
@@ -44,6 +56,10 @@ export class AuthService {
 
   almReg2(Almacen){
     return this.http.post(`${this.urlAlterno}post`,JSON.stringify(Almacen))
+  }
+
+  DatosActual(prueba){
+    return this.http.post(`${this.urlAlterno}update2`,JSON.stringify(prueba))
   }
 
 

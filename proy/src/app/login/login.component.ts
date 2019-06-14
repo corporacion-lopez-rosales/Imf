@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
           if(result[i]["user_group_id"]==4){
             //window.open("http://crm.inmobiliariaimf.com/index.php?route=common/login");
             window.location.href="http://crm.inmobiliariaimf.com/index.php?route=common/login"
+         
           }
           else{
             this.id(result[i]['user_id']);

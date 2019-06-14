@@ -13,6 +13,7 @@ export class DatosComponent implements OnInit {
   constructor(public AuthService:AuthService) { this.datos=new DatosGenerales(0,0,'','','','','','','','','',"",0,0,0,this.x,0) }
   x=this.AuthService.showID()
   ngOnInit() {
+    
   }
 
 

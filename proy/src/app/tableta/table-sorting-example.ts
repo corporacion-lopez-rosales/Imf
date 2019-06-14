@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
 
 export class TableSorting implements OnInit {
   constructor(private AuthService:AuthService, private routin:Router){  }
-  informacion=null
   displayedColumns: string[] = ['no_parcela','tipo','desc_par','noreste','noroeste','sureste','fecha_alta','Eliminar','Modificar'];
   dataSource = new Prueba(this.AuthService);
 
@@ -32,6 +31,12 @@ export class TableSorting implements OnInit {
 
   editar(element){
     this.AuthService.getForm(element);
+  }
+
+
+  Nuevo(){
+    this.routin.navigate(['/datosGenerales'])
+    
   }
 
 }
