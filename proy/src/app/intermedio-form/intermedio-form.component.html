@@ -1,0 +1,59 @@
+<form #formpruebaGenerales="ngForm" (ngSubmit)="onSubmit()">      
+        <div class="row">
+        
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+              <label for="exampleFormControlInput1">Proveedor:</label>
+              <select class="equipo-dinamita"  name="id_proveedor" #tipo="ngModel" [(ngModel)]="prueba.id_proveedor">
+              <option value="1">Miguel</option>
+              <option value="2">Jorge</option>
+              <option value="3">Pedro</option>
+              </select>
+              </div>
+              
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+              <label for="exampleFormControlInput1">Numero de parcela:</label>
+              <input type="number" min="0" class="equipo-dinamita"   name="no_parcela"  #no_parcela="ngModel" [(ngModel)]="prueba.no_parcela"  />
+              </div>  
+    
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+              <label for="exampleFormControlInput1">Region:</label>
+              <select class="equipo-dinamita" name="id_municipio" #id_municipio="ngModel" [(ngModel)]="prueba.id_municipio" >
+              <option value="1">Montemorrelos</option>
+              <option value="2">Cadereyta</option>
+              <option value="3">Salinas</option> 
+              <option value="4">Saltillo</option>
+              </select>
+              </div> 
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                <label for="exampleFormControlInput1">Hectarias:</label>
+                <input type="number" min="0" class="equipo-dinamita"  name="hectarias"  #hectarias="ngModel" [(ngModel)]="prueba.hectarias"/>
+            </div> 
+        
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                <label for="exampleFormControlInput1">Area vendible:</label>
+                <input type="number" min="0" class="equipo-dinamita"  name="vendible"  #vendible="ngModel" [(ngModel)]="Nuevo.vendible" />
+            </div>  
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                    <label for="exampleFormControlInput1">Area Municipal:</label>
+                    <input type="number" min="0" class="equipo-dinamita"  name="areampa"  #areampa="ngModel" [(ngModel)]="Nuevo.areampa" />
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                    <label for="exampleFormControlInput1">Area Vial:</label>
+                    <input type="number" min="0" class="equipo-dinamita"  name="areavial"  #areavial="ngModel" [(ngModel)]="Nuevo.areavial"  />
+            </div>
+            
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                    <label for="exampleFormControlInput1">Total de lotes:</label>
+                    <input type="number" min="0" class="equipo-dinamita"  name="cantiadLotes"  #cantiadLotes="ngModel" [(ngModel)]="Nuevo.cantiadLotes"  />
+            </div>
+        </div>
+    
+        
+         <br>      					
+     <button type="submit" value="envia" class="equipo-dinamita-Button">Prueba</button>
+    </form>

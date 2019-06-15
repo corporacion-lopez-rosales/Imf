@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {NgForm} from '@angular/forms'; 
 import * as moment from 'moment';
+import {Router} from '@angular/router';
 
 
 
@@ -36,9 +37,11 @@ export class DatosUpdateComponent implements OnInit {
   }
 
 
-  constructor(public AuthService:AuthService) {
+  constructor(public AuthService:AuthService, public routin:Router) {
   }
   x;
+
+
 
   ngOnInit() {
     
@@ -70,9 +73,16 @@ export class DatosUpdateComponent implements OnInit {
   
   }
 
+
+
+
+  Salir(){
+    window.location.reload();
+  }
+
   onSubmit(form:NgForm){
     this.AuthService.DatosActual(this.prueba).subscribe(result=>{
-      alert("Datos enviados");
+      this.routin.navigate(['/tablaDatos'])
     },
     error=>{
       alert("Error en servisio");

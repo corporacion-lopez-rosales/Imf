@@ -21,6 +21,9 @@ import { DatosComponent } from './datos/datos.component';
 import { DatosTableComponent } from './datos-table/datos-table.component';
 import { DatosUpdateComponent } from './datos-update/datos-update.component';
 import {MomentModule} from 'ngx-moment';
+import {AlertModule} from 'ngx-alerts';
+import { IntermedioComponent } from './intermedio/intermedio.component';
+import { IntermedioFormComponent } from './intermedio-form/intermedio-form.component';
 
 
 @NgModule({
@@ -36,6 +39,8 @@ import {MomentModule} from 'ngx-moment';
     DatosComponent,
     DatosTableComponent,
     DatosUpdateComponent,
+    IntermedioComponent,
+    IntermedioFormComponent,
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,ReactiveFormsModule,
@@ -43,6 +48,7 @@ import {MomentModule} from 'ngx-moment';
     AppRoutingModule,MatExpansionModule,
     HttpClientModule,
     MomentModule,
+    AlertModule.forRoot({maxMessages:5,timeout:5000,position:'right'}),
     RouterModule.forRoot([
     
       {
@@ -88,6 +94,14 @@ import {MomentModule} from 'ngx-moment';
       {
         path:'datosGenerales/update',
         component:DatosUpdateComponent
+      },
+      {
+        path:'testeo',
+        component:IntermedioComponent
+      },
+      {
+        path:'testeo/Datos',
+        component:IntermedioFormComponent
       }
     ]),
     MatPaginatorModule,

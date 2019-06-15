@@ -22,7 +22,9 @@ export class AuthService {
     return this.http.get(`${this.urlAlterno}login`)
   }
 
-
+  intermedio(Nuevo){
+    return this.http.post(`${this.urlAlterno}intermedio`,JSON.stringify(Nuevo))
+  }
   registrar(usuario){
     return this.http.post(`${this.urlOficial}Registro`,JSON.stringify(usuario))
   }

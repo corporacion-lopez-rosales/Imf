@@ -3,8 +3,8 @@
     <button mat-icon-button class="menu" (click)="snav.toggle()">
     <mat-icon style="color: white" >menu</mat-icon>
     </button>
-    <button mat-icon-button class="menu" style="left:95%">
-    <mat-icon style="color: white">home</mat-icon>
+    <button mat-icon-button class="menu" style="left:95%" (click)="Salir()">
+    <mat-icon style="color: white">exit_to_app</mat-icon>
     </button>
     </mat-toolbar>
             <mat-sidenav-container class="sidenav-container" >
@@ -20,14 +20,15 @@
             <span>prueba generales</span>
             </mat-toolbar>
             <div class="card-body">
-                            <form #formpruebaGenerales="ngForm" (ngSubmit)="onSubmit()">      
+                            <form #formpruebaGenerales="ngForm" (ngSubmit)="onSubmit()"> 
+                                       
                                  <div class="row">
                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
                                        <label for="exampleFormControlInput1">Region:</label>
-                                       <select class="equipo-dinamita" name="id_municipio" #id_municipio="ngModel" [(ngModel)]="prueba.id_municipio">
-                                       <option value="${prueba.id_municipio}">Saltillo</option>
-                                       <option value=2>Cadereyta</option>
-                                       <option value=3>Salinas</option>  
+                                       <select class="equipo-dinamita" name="id_municipio" #id_municipio="ngModel" [(ngModel)]="prueba.id_municipio" >
+                                       <option value="1">Saltillo</option>
+                                       <option value="2">Cadereyta</option>
+                                       <option value="3">Salinas</option>  
                                        </select>
                                        </div>
                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">

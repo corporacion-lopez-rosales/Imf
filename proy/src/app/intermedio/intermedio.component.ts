@@ -1,16 +1,15 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component,OnInit } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs';
 import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
 
-
 @Component({
-  selector: 'app-datos-table',
-  templateUrl: './datos-table.component.html',
-  styleUrls: ['./datos-table.component.scss']
+  selector: 'app-intermedio',
+  templateUrl: './intermedio.component.html',
+  styleUrls: ['./intermedio.component.scss']
 })
-export class DatosTableComponent implements AfterViewInit {
+export class IntermedioComponent implements OnInit {
   constructor(private AuthService:AuthService, private routin:Router){}
   displayedColumns = ['id', 'no_parcela','medidas','description','valor_compra','firstname','nombre','fecha_alta','Modificar'];
   dataSource=new Prueba(this.AuthService)
@@ -37,9 +36,6 @@ export class DatosTableComponent implements AfterViewInit {
   Salir(){
     window.location.reload();
   }
-
-
-
 
 }
 
