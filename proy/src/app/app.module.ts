@@ -24,8 +24,8 @@ import {MomentModule} from 'ngx-moment';
 import {AlertModule} from 'ngx-alerts';
 import { IntermedioComponent } from './intermedio/intermedio.component';
 import { IntermedioFormComponent } from './intermedio-form/intermedio-form.component';
-
-
+import {ListadoLotesComponent} from './listado-lotes/listado-lotes.component';
+import {DataTableModule} from 'angular-6-datatable';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,13 +41,15 @@ import { IntermedioFormComponent } from './intermedio-form/intermedio-form.compo
     DatosUpdateComponent,
     IntermedioComponent,
     IntermedioFormComponent,
+    ListadoLotesComponent
+
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,ReactiveFormsModule,
     FormsModule,MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule,MatRadioModule ,MatCheckboxModule,MatFormFieldModule,MatTableModule,
     AppRoutingModule,MatExpansionModule,
     HttpClientModule,
-    MomentModule,
+    MomentModule,DataTableModule,
     AlertModule.forRoot({maxMessages:5,timeout:5000,position:'right'}),
     RouterModule.forRoot([
     
@@ -102,6 +104,10 @@ import { IntermedioFormComponent } from './intermedio-form/intermedio-form.compo
       {
         path:'testeo/Datos',
         component:IntermedioFormComponent
+      },
+      {
+        path:'Lotes',
+        component:ListadoLotesComponent
       }
     ]),
     MatPaginatorModule,

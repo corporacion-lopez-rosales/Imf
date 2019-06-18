@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { Nuevo } from './Modelo/prueba';
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +22,11 @@ export class AuthService {
   login2(){
     return this.http.get(`${this.urlAlterno}login`)
   }
-
-  intermedio(Nuevo){
+  
+  intermediario(Nuevo){
     return this.http.post(`${this.urlAlterno}intermedio`,JSON.stringify(Nuevo))
   }
+
   registrar(usuario){
     return this.http.post(`${this.urlOficial}Registro`,JSON.stringify(usuario))
   }

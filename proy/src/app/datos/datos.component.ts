@@ -18,6 +18,7 @@ export class DatosComponent implements OnInit {
 
 
   onSubmit(ng:Form){
+    console.log(this.datos);
     this.AuthService.almReg2(this.datos).subscribe(result=>{
       console.log(result);
     },

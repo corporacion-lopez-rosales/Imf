@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {NgForm} from '@angular/forms';
 import {Nuevo} from '../Modelo/prueba';
-import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-intermedio-form',
@@ -10,49 +9,103 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./intermedio-form.component.scss']
 })
 export class IntermedioFormComponent implements OnInit {
+
   prueba={
-    id_colin:null,
-    id_proveedor:null,
-    id_municipio:null,
+    id_colin:null, 
     no_parcela:null,
+    id_proveedor:null,
+    id_municipio:null, 
     hectarias:null
   }
-  hectarias=new FormControl(0);
-  areaVial=new FormControl(0);
-  areampa= new FormControl(0);
-
   public Nuevo:Nuevo
 
   constructor(public AuthService:AuthService) {
-    this.Nuevo= new Nuevo(this.prueba.id_colin,this.prueba.id_proveedor,this.prueba.id_municipio,this.prueba.no_parcela,this.prueba.hectarias,0,0,0,0)
   }
   x;
+  total1;
+  totalLotes;
+  lotesC;
+  LotesMun;
+  
+  
+  M2AV; //Area vendible
+  M2AM; //Area municipal
+  M2AVi; //Area vial
+  M2Tol; //Total en metros cuadrados
+  M2HA;  //Hectarias adquiridas en metros cuadrados
+ 
   ngOnInit() {
     this.x=this.AuthService.mostrarDatos();
-    console.log(this.x)
     this.prueba={
       id_colin:this.x.id,
+      no_parcela:this.x.no_parcela,
       id_proveedor:this.x.id_proveedor,
       id_municipio:this.x.id_municipio,
-      no_parcela:this.x.no_parcela,
       hectarias:this.x.medidas
     }
+
+    this.Nuevo={
+      id_colin:this.prueba.id_colin,
+      id_municipio:this.prueba.id_municipio,
+      id_proveedor:this.prueba.id_proveedor,
+      hectarias:this.prueba.hectarias,
+      vendible:0,
+      areavial:0,
+      areampa:0,
+      cantidadLotes:0,
+      observacion:''
+    }
+    this.M2HA=this.prueba.hectarias *10000;
+  }
+
+
+  total(){
+    this.total1=this.Nuevo.vendible + this.Nuevo.areampa + this.Nuevo.areavial;
+    this.totalLotes=  this.lotesC + this.LotesMun;
+    this.Nuevo.cantidadLotes=this.totalLotes;
+    this.conversion();
+  }
+
+  conversion(){
+    this.M2AV=this.Nuevo.vendible * 10000;
+    this.M2AM=this.Nuevo.areampa * 10000;
+    this.M2AVi=this.Nuevo.areavial * 10000;
+    this.M2Tol=this.total1 * 10000;
+    console.log(this.M2AV);
+    console.log(this.M2AM);
+    console.log(this.M2AVi);
+  }
+
+  
+  onSubmit(){
+    if(this.total1 == this.Nuevo.hectarias && this.M2Tol == this.M2HA  ){
+      this.AuthService.intermediario(this.Nuevo).subscribe(result=>{
+        console.log(result);
+      },
+      error=>{
+        console.log(<any>error);
+      })
+    }
+    else{
+      alert("Datos equivocados")
+    }
+
     
   }
 
-
-
-
-  onSubmit(form:NgForm){
-    this.AuthService.intermedio(this.Nuevo).subscribe(result=>{
-      console.log(result);
-      alert('Datos Enviados');
-      
-    },
-    error=>{
-      console.log(<any>error);
-      alert('Error');
-    })
+ /* onSubmit(){
+  console.log(this.prueba);
+  console.log(this.Nuevo);
+  this.AuthService.intermediario(this.Nuevo).subscribe(result=>{
+    console.log(result);
+  },
+  error=>{
+    console.log(<any>error);
   }
+  )
+  }
+*/
+
+
 
 }

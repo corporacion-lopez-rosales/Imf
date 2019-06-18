@@ -12,12 +12,11 @@ export class AppComponent implements OnInit {
   x;
   
   ngOnInit(){
- /*  this.x=this.AuthService.showID();
+  /* this.x=this.AuthService.showID();
    console.log(this.x);
    if(this.x==undefined){
     this.router.navigate(['login'])
-    }
-*/     
-}
+    }*/     
+  }
 
 }
