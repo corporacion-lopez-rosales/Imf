@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { DataSource } from '@angular/cdk/table';
-import { Observable } from 'rxjs';
+import {Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
+import { MatTableDataSource } from '@angular/material';
 
 
 @Component({
@@ -10,19 +9,14 @@ import {Router} from '@angular/router';
   templateUrl: './datos-table.component.html',
   styleUrls: ['./datos-table.component.scss']
 })
-export class DatosTableComponent implements AfterViewInit {
+export class DatosTableComponent implements OnInit {
   constructor(private AuthService:AuthService, private routin:Router){}
   displayedColumns = ['id', 'no_parcela','medidas','description','valor_compra','firstname','nombre','fecha_alta','Modificar'];
-  dataSource=new Prueba(this.AuthService)
-  ngAfterViewInit() {
-    
-  }
+  dataSource:any;
+
 
   ngOnInit(){
-    var prueba=this.AuthService.almacen3();
-    prueba.forEach(element => {
-      console.log(element);
-    });
+    this.renderTable();
   }
 
    editar(row){
@@ -39,22 +33,24 @@ export class DatosTableComponent implements AfterViewInit {
   }
 
 
-
-
-}
-
-
-
-export class Prueba extends DataSource <any>{
-  constructor(private AuthService:AuthService){
-    super();
+  renderTable(){
+    this.AuthService.almacen3().subscribe(x=>{
+      this.dataSource=new MatTableDataSource();
+      this.dataSource.data=x;
+    },
+    error=>{
+      console.log(<any>error)
+    });
   }
-  
-connect():Observable<any>{
-  return this.AuthService.almacen3();
+
+
+  applyFilter(filterValue:string){
+    filterValue=filterValue.trim();
+    filterValue=filterValue.toLowerCase();
+    this.dataSource.filter=filterValue;
+  }
+
 }
 
-disconnect(){
 
-}
-}
+

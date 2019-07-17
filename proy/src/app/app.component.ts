@@ -7,16 +7,16 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'proy';
+  title = 'IMF';
   constructor(public AuthService:AuthService,public router:Router){}
   x;
   
   ngOnInit(){
-  /* this.x=this.AuthService.showID();
-   console.log(this.x);
-   if(this.x==undefined){
-    this.router.navigate(['login'])
-    }*/     
+   this.x=this.AuthService.showID();
+      console.log(this.x);
+      if(this.x==undefined){
+        this.router.navigate(['login'])
+      }
   }
 
 }

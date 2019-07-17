@@ -19,15 +19,13 @@ export class LoginComponent implements OnInit {
     this.AuthService.login2().subscribe(result=>{
       this.prueba=Array(result);
       console.log(this.prueba);
-      console.log(this.prueba[0].length);
+      console.log(this.prueba[0].length + "Longuitud");
       var longitud_user=this.prueba[0].length;
       for(var i=0; i<longitud_user; i++){
         if (result[i]['username']==this.username && result[i]['password']==this.password) {
           
           if(result[i]["user_group_id"]==4){
-            //window.open("http://crm.inmobiliariaimf.com/index.php?route=common/login");
-            window.location.href="http://crm.inmobiliariaimf.com/index.php?route=common/login"
-         
+            window.location.href=`http://crm.inmobiliariaimf.com/index.php?route=common/login&username=${this.username}&password=${this.password}`
           }
           else{
             this.id(result[i]['user_id']);

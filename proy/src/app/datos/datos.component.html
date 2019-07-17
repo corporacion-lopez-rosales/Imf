@@ -17,110 +17,148 @@
     <mat-sidenav-content class="body">
             <div class="card">
             <mat-toolbar>
-            <span>Datos generales</span>
+            <span>Alta de parcelas  <button mat-stroked-button class="btn-regresar" (click)="Regresar()">Regresar </button>  </span>
             </mat-toolbar>
             <div class="card-body">
-                            <form #formDatosGenerales="ngForm" (ngSubmit)="onSubmit()">      
-                                 <div class="row">
-                                       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exampleFormControlInput1">Region:</label>
-                                       <select class="equipo-dinamita" name="id_municipio" #region="ngModel" [(ngModel)]="datos.id_municipio">
-                                       <option value="1">Saltillo</option>
-                                       <option value="2">Cadereyta</option>
-                                       <option value="3">Salinas</option>  
-                                       </select>
-                                       </div>
-                                       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exampleFormControlInput1">Tipo</label>
-                                       <select class="equipo-dinamita"  name="id_tipo" #id_tipo="ngModel" [(ngModel)]="datos.id_tipo">
-                                       <option value="1">Fracionamiento</option>
-                                       <option value="2">Fracionamiento/Propiedad</option>
-                                       <option value="3">Fracionamiento/Co-Propiedad</option>
-                                       </select>
-                                       </div>		
-                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exampleFormControlInput1">Provedor</label>
-                                       <select class="equipo-dinamita"  name="id_proveedor" #tipo="ngModel" [(ngModel)]="datos.id_proveedor">
-                                       <option value="1">David</option>
-                                       <option value="2">Karla Saucedo</option>
-                                       <option value="3">Gisela Vazquez</option>
-                                       </select>
-                                       </div>
-                                       </div>
-                                       
-                                       
-                                       
-                                       
-                                       
-                                       <div class="row">
-                                       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exampleFormControlInput1">Numero de parcela:</label>
-                                       <input type="number" min="0" class="equipo-dinamita" placeholder="Numero de parcela"  name="no_parcela"  #no_parcela="ngModel" [(ngModel)]="datos.no_parcela"  />
-                                       </div>                                         
-                                       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exampleFormControlInput1">Medidas:</label>
-                                       <input type="number" class="equipo-dinamita" min="0" placeholder="Medidas" name="medidas" #medidas="ngModel" [(ngModel)]="datos.medidas">
-                                       </div> 
-                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exampleFormControlInput1">Valor de compra</label>
-                                       <input type="number" class="equipo-dinamita" min="0" placeholder="Valor de compra" name="valor_compra" #valor_compra="ngModel" [(ngModel)]="datos.valor_compra">
-                                       </div>                                   								  
-                                       </div>
-                                       
-                                       
-                                       
-                                       <div class="row">
-                                       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exampleFormControlInput1">Norte:</label>
-                                       <input type="text" class="equipo-dinamita"  placeholder="Norte"  name="norte" #norte="ngModel" [(ngModel)]="datos.norte"   />
-                                       </div>
-                                       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exaple">Sur:</label>
-                                       <input type="text" class="equipo-dinamita"  placeholder="Sur"  name="sur" #sur="ngModel" [(ngModel)]="datos.sur"   />
-                                       </div>
-                                       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exaple">Este:</label>
-                                       <input type="text" class="equipo-dinamita"placeholder="Este" name="este" #este="ngModel" [(ngModel)]="datos.este" />
-                                       </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exaple">Oeste:</label>
-                                       <input type="text" class="equipo-dinamita"  placeholder="Oeste"  name="oeste" #oeste="ngModel" [(ngModel)]="datos.oeste" />
-                                       </div>
-                                       </div>
-                                       
-                                       <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exaple">Noreste:</label>
-                                       <input type="text" class="equipo-dinamita"  placeholder="Noreste"  name="noreste" #noreste="ngModel" [(ngModel)]="datos.noreste" />
-                                       </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exaple">Noroeste:</label>
-                                       <input type="text" class="equipo-dinamita" placeholder="Noroeste"  name="noroeste" #noroeste="ngModel" [(ngModel)]="datos.noroeste" />
-                                       </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exaple">Sureste:</label>
-                                       <input type="text" class="equipo-dinamita" placeholder="Sureste"  name="sureste" #sureste="ngModel" [(ngModel)]="datos.sureste" /> 
-                                       </div>
-                                       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exaple">suroeste:</label>
-                                       <input type="text"  class="equipo-dinamita" placeholder="Suroeste"  name="suroeste" #suroeste="ngModel" [(ngModel)]="datos.suroeste" />
-                                       </div>
-                                       </div>
-                                       
-                                       
-                                       <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exampleFormControlInput1">Descripcion</label>
-                                       <textarea class="equipo-dinamita"  rows="3" placeholder="Descripcion" name="desc_par" #desc_par="ngModel" [(ngModel)]="datos.desc_par"></textarea>
-                                       </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
-                                       <label for="exampleFormControlInput1">Fecha de alta:</label>
-                                       <input type="date"  class="equipo-dinamita"  name="fecha_alta" #fecha_alta="ngModel" [(ngModel)]="datos.fecha_alta" />
-                                       </div>
-                                       </div>
-                                  <br>      					
-                              <button type="submit" value="envia" class="equipo-dinamita-Button">Prueba</button>
-                            </form>
+                        <mat-tab-group>
+                                   <mat-tab label="Dar de alta proveedor" class="angular-material"> 
+                                               <br>
+                                                 <form  #formProveedor="ngForm" (ngSubmit)="onSubmitPro() ">
+                                                               <div class="row">
+                                                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <mat-form-field class="example-full-width">
+                                                                      <input matInput placeholder="Nombre del proveedor" type="text" name="nombre"  #nombre="ngModel" [(ngModel)]="proveedor.nombre" >
+                                                                </mat-form-field>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <mat-form-field class="example-full-width">
+                                                                      <input matInput placeholder="Nacionalidad" type="text" name="nacionalida"  #correo="ngModel" [(ngModel)]="proveedor.nacionalida" >
+                                                                </mat-form-field>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <mat-form-field class="example-full-width">
+                                                                      <input matInput placeholder="Estado civil" type="text" name="estado_civil"  #estado_civil="ngModel" [(ngModel)]="proveedor.estado_civil" >
+                                                                </mat-form-field>
+                                                                </div>
+                                                               </div>
+                                                               <div class="row">
+                                                                  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                  <mat-form-fiel class="example-full-width">   
+                                                                      <textarea matInput placeholder="Domicilio" name="domicilio" #domicilio="ngModel" [(ngModel)]="proveedor.domicilio" ></textarea>
+                                                                  </mat-form-fiel>   
+                                                                  </div>
+                                                                  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                      <mat-form-field>
+                                                                             <input matInput [matDatepicker]="picker1" placeholder="Fecha de nacimiento" name="fecha_nacimiento"  #fecha_nacimiento="ngModel" [(ngModel)]="proveedor.fecha_nacimiento">
+                                                                             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                                             <mat-datepicker #picker1></mat-datepicker>
+                                                                      </mat-form-field>  
+                                                                   </div>
+                                                               </div>
+                                                               <button mat-stroked-button class="angular-material-button">Enviar </button>
+                                                               <br>
+                                                               <br>
+                                                        </form>
+                                   </mat-tab>
+                                        <mat-tab label="Dar de alta de parcela" class="angular-material">
+                                        <br>
+                                        <form  #formDatosGenerales="ngForm" (ngSubmit)="onSubmit()">
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                   <mat-select placeholder="Select" name="id_municipio" #region="ngModel" [(ngModel)]="datos.id_municipio">
+                                                      <mat-option *ngFor="let m of mun" [value]="m.value">
+                                                              {{m.viewValue}}
+                                                      </mat-option>
+                                                   </mat-select>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                    <mat-select placeholder="Select" name="id_tipo" #id_tipo="ngModel" [(ngModel)]="datos.id_tipo" >
+                                                        <mat-option  *ngFor="let t of tipo" [value]="t.value">{{t.viewValue}}</mat-option>
+                                                    </mat-select>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                             <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Numero de parcela" min="0" type="number" name="no_parcela"  #no_parcela="ngModel" [(ngModel)]="datos.no_parcela" required >
+                                             </mat-form-field>
+                                             </div>
+                                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                             <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Hectáreas adqueridas" min="0"  type="number" name="medidas"  #medidas="ngModel" [(ngModel)]="datos.medidas"  required>
+                                             </mat-form-field>
+                                             </div>
+                                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                             <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Valor de compra" min="0" (keyup)="formato()"  type="text" name="valor_compra"  #valor_compra="ngModel" [(ngModel)]="datos.valor_compra" required>
+                                             </mat-form-field>
+                                             </div>
+                                            </div>
+                                            <div class="row">
+                                               <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                     <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Norte"  type="text" name="norte"  #norte="ngModel" [(ngModel)]="datos.norte">
+                                                     </mat-form-field>
+                                               </div>
+                                               <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                     <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Sur"  type="text" name="sur"  #sur="ngModel" [(ngModel)]="datos.sur">
+                                                     </mat-form-field>
+                                               </div>
+                                               <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                     <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Este"  type="text" name="este"  #este="ngModel" [(ngModel)]="datos.este">
+                                                     </mat-form-field>
+                                               </div>
+                                            </div>
+                                            <div class="row">
+                                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                     <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Oeste"  type="text" name="oeste"  #oeste="ngModel" [(ngModel)]="datos.oeste">
+                                                     </mat-form-field>
+                                             </div>
+                                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                     <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Noreste"  type="text" name="noreste"  #noreste="ngModel" [(ngModel)]="datos.noreste">
+                                                     </mat-form-field>
+                                             </div>
+                                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                     <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Noroeste"  type="text" name="noroeste"  #noroeste="ngModel" [(ngModel)]="datos.noroeste">
+                                                     </mat-form-field>
+                                             </div>
+                                             </div>
+                                             <div class="row">
+                                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                     <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Suroeste"  type="text" name="suroeste"  #suroeste="ngModel" [(ngModel)]="datos.suroeste">
+                                                     </mat-form-field>
+                                             </div>
+                                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                     <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Sureste"  type="text" name="sureste"  #sureste="ngModel" [(ngModel)]="datos.sureste">
+                                                     </mat-form-field>
+                                             </div>
+                                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                     <mat-form-field class="example-full-width">
+                                                            <textarea matInput placeholder="Descripcion" name="desc_par" #desc_par="ngModel" [(ngModel)]="datos.desc_par" ></textarea>
+                                                     </mat-form-field>
+                                             </div>
+                                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                             <mat-form-field>
+                                                    <input matInput [matDatepicker]="picker" placeholder="Fecha de alta" name="desc_par"  #desc_par="ngModel" [(ngModel)]="datos.fecha_alta">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                    <mat-datepicker #picker></mat-datepicker>
+                                             </mat-form-field>
+                                             </div>
+                                             </div>
+                                              <button mat-stroked-button class="angular-material-button">Enviar </button>
+                                              <br>	
+                                              <br>  
+                                        </form>    
+                                        </mat-tab>
+                        </mat-tab-group>
             </div>
             </div>
     </mat-sidenav-content>

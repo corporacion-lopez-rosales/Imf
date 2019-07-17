@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {NgForm} from '@angular/forms';
 import {Nuevo} from '../Modelo/prueba';
+import {Router} from '@angular/router';
+import {NumeralPipe } from 'ngx-numeral';
 
 @Component({
   selector: 'app-intermedio-form',
@@ -19,7 +21,7 @@ export class IntermedioFormComponent implements OnInit {
   }
   public Nuevo:Nuevo
 
-  constructor(public AuthService:AuthService) {
+  constructor(public AuthService:AuthService,private router:Router) {
   }
   x;
   total1;
@@ -27,13 +29,25 @@ export class IntermedioFormComponent implements OnInit {
   lotesC;
   LotesMun;
   
+  mun:Municipio[]=[
+    {value:"1",viewValue:'Montemorelos'},
+    {value:"2",viewValue:'Cadereyta'},
+    {value:"3",viewValue:'Salinas'},
+    {value:"4",viewValue:'Saltillo'}
+  ]
+
+  pro:Proveedor[]=[
+    {value:"1",viewValue:"Pedro"},
+    {value:"2",viewValue:"Angel"},
+    {value:"3",viewValue:"Miguel"}
+  ]
+
   
   M2AV; //Area vendible
   M2AM; //Area municipal
   M2AVi; //Area vial
   M2Tol; //Total en metros cuadrados
   M2HA;  //Hectarias adquiridas en metros cuadrados
- 
   ngOnInit() {
     this.x=this.AuthService.mostrarDatos();
     this.prueba={
@@ -53,9 +67,10 @@ export class IntermedioFormComponent implements OnInit {
       areavial:0,
       areampa:0,
       cantidadLotes:0,
-      observacion:''
+      observacion:null
     }
-    this.M2HA=this.prueba.hectarias *10000;
+    var tol = new NumeralPipe(this.prueba.hectarias * 10000).format('0,0.0000');
+    this.M2HA=tol;
   }
 
 
@@ -67,13 +82,20 @@ export class IntermedioFormComponent implements OnInit {
   }
 
   conversion(){
-    this.M2AV=this.Nuevo.vendible * 10000;
-    this.M2AM=this.Nuevo.areampa * 10000;
-    this.M2AVi=this.Nuevo.areavial * 10000;
-    this.M2Tol=this.total1 * 10000;
+    var y = new NumeralPipe(this.Nuevo.vendible * 10000).format('0,0.0000');
+    var x = new NumeralPipe(this.Nuevo.areampa  * 10000).format('0,0.0000');
+    var z = new NumeralPipe(this.Nuevo.areavial * 10000).format('0,0.0000');
+    var t = new NumeralPipe(this.total1 * 10000).format('0,0.0000');
+    this.M2AV =  y;
+    this.M2AM =  x;
+    this.M2AVi= z;
+    this.M2Tol= t;
+    console.log(this.Nuevo.vendible);
     console.log(this.M2AV);
-    console.log(this.M2AM);
-    console.log(this.M2AVi);
+  }
+
+  regresar(){
+     this.router.navigate([''])
   }
 
   
@@ -89,23 +111,21 @@ export class IntermedioFormComponent implements OnInit {
     else{
       alert("Datos equivocados")
     }
-
-    
   }
 
- /* onSubmit(){
-  console.log(this.prueba);
-  console.log(this.Nuevo);
-  this.AuthService.intermediario(this.Nuevo).subscribe(result=>{
-    console.log(result);
-  },
-  error=>{
-    console.log(<any>error);
-  }
-  )
-  }
-*/
+}
 
 
 
+export interface Municipio
+{
+  value:string;
+  viewValue:string;
+}
+
+
+export interface Proveedor 
+{
+  value:string;
+  viewValue:string;
 }

@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { FormsModule,ReactiveFormsModule}from '@angular/forms';
-import {MatButtonModule,MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule,MatRadioModule,MatCheckboxModule,MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import {MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule,MatRadioModule,MatCheckboxModule,MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TableSorting} from './tableta/table-sorting-example';
@@ -26,6 +26,16 @@ import { IntermedioComponent } from './intermedio/intermedio.component';
 import { IntermedioFormComponent } from './intermedio-form/intermedio-form.component';
 import {ListadoLotesComponent} from './listado-lotes/listado-lotes.component';
 import {DataTableModule} from 'angular-6-datatable';
+import { PruExportComponent } from './pru-export/pru-export.component';
+import { PruebasComponent } from './pruebas/pruebas.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker'
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatFileUploadModule } from 'angular-material-fileupload';
+import {NumericTextboxModule} from 'ngx-numeric-textbox'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,15 +51,17 @@ import {DataTableModule} from 'angular-6-datatable';
     DatosUpdateComponent,
     IntermedioComponent,
     IntermedioFormComponent,
-    ListadoLotesComponent
+    ListadoLotesComponent,
+    PruExportComponent,
+    PruebasComponent
 
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,ReactiveFormsModule,
     FormsModule,MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule,MatRadioModule ,MatCheckboxModule,MatFormFieldModule,MatTableModule,
-    AppRoutingModule,MatExpansionModule,
-    HttpClientModule,
-    MomentModule,DataTableModule,
+    AppRoutingModule,MatExpansionModule,MatSelectModule,
+    HttpClientModule,MatTabsModule,MatInputModule,MatDatepickerModule,MatSnackBarModule,
+    MomentModule,NumericTextboxModule,DataTableModule,MatFileUploadModule,
     AlertModule.forRoot({maxMessages:5,timeout:5000,position:'right'}),
     RouterModule.forRoot([
     
@@ -108,6 +120,14 @@ import {DataTableModule} from 'angular-6-datatable';
       {
         path:'Lotes',
         component:ListadoLotesComponent
+      },
+      {
+        path:'excel',
+        component:PruExportComponent
+      },
+      {
+        path:'prueba',
+        component:PruebasComponent
       }
     ]),
     MatPaginatorModule,

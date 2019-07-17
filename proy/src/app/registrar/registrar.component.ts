@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import { Registro} from '../Modelo/Registros';
 import { NgForm } from '@angular/forms';
-
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
-  styleUrls: ['./registrar.component.css']
+  styleUrls: ['./registrar.component.scss']
 })
 export class RegistrarComponent implements OnInit {
   public credenciales ={
@@ -15,11 +14,15 @@ export class RegistrarComponent implements OnInit {
   }
   public usuario:Registro;
   constructor(private AuthService: AuthService) { 
-    this.usuario= new Registro (0,7,'',0,0,0,'','','','','','',0,0,0,'');
+    this.usuario= new Registro (0,0,'',0,0,0,'','','','','','',0,0,0,'');
     
    }
   
   ngOnInit() {
+  }
+
+  Regresar(){
+   
   }
 
   onSubmit(from : NgForm){

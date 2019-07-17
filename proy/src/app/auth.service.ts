@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Nuevo } from './Modelo/prueba';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class AuthService {
 
   element;
   session;
+  prov;
   public urlAlterno="http://crm.inmobiliariaimf.com/WebServices/index.php/Actualizado/"
   public urlOficial='http://crm.inmobiliariaimf.com/WebServices/index.php/';
   public urlAlm ="http://crm.inmobiliariaimf.com/WebServices/index.php/Almacen/"
@@ -31,7 +32,24 @@ export class AuthService {
     return this.http.post(`${this.urlOficial}Registro`,JSON.stringify(usuario))
   }
 
-    
+  proveedor(proveedor){
+    return this.http.post(`${this.urlAlterno}proveedor`,JSON.stringify(proveedor))
+  }
+
+  proveedorget(){
+    return this.http.get(`${this.urlAlterno}getProv`);
+  }
+
+  //Excel Export
+
+  ExcelExport(){
+    return this.http.get(`${this.urlAlterno}prueba`);
+  }
+
+  //excel(Prueba)
+  DatosExcel(){
+    return this.http.get(`${this.urlAlterno}Lotes`)
+  }
 
   //mostrar datos en la tabla
   almacen(){
@@ -84,7 +102,7 @@ mostrarDatos(){
   return this.element;
   
 }
-
+//obtener id del usuario para insertarla en inventario parcela
 getid(id){
  console.log(this.session);
   this.session=id

@@ -1,0 +1,34 @@
+
+<form class="register-form" #formRegistro="ngForm" (ngSubmit)="onSubmit()">
+  <p>Lote numero {{num}}</p>
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+        <input type="number" min="0" placeholder="Numero de parcela" name="no_parcela" #no_parcela="ngModel" [(ngModel)]="prueba.no_parcela"/>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+        <input type="text"  placeholder="Proveedor" name="proveedor" #proveedor="ngModel" [(ngModel)]="prueba.proveedor"/>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+        <input type="text"  placeholder="municipio" name="municipio" #municipio="ngModel" [(ngModel)]="prueba.municipio"/>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+          <input type="text"  placeholder="norte" name="norte" #norte="ngModel" [(ngModel)]="prueba.norte"/>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+          <input type="text"  placeholder="sur" name="sur" #sur="ngModel" [(ngModel)]="prueba.sur"/>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+          <input type="text"  placeholder="este" name="este" #este="ngModel" [(ngModel)]="prueba.este"/>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+          <input type="text"  placeholder="oeste" name="oeste" #oeste="ngModel" [(ngModel)]="prueba.oeste"/>
+      </div>
+  </div>
+  <button>Lote</button>
+</form>
+
+
+

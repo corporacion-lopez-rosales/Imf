@@ -83,4 +83,23 @@
         transition: all 0.3 ease;
         cursor: pointer;
     }
- 
+
+    .angular-material-button{
+        background: #4CAF50;
+        margin-right: 8px;
+        color: white;
+    }
+
+    .angular-material{
+        width: auto;
+        height:auto;
+        overflow: unset;
+    }
+
+    .btn-regresar{
+        background: #4CAF50;
+        margin-right: 8px;
+        color: white;
+        position: absolute;
+        right:9%;
+    }

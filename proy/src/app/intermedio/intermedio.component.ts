@@ -29,6 +29,12 @@ export class IntermedioComponent implements OnInit {
   }
 
 
+  exportExcel(row)
+  {
+    this.AuthService.getForm(row);
+  }
+
+
   Nuevo(){
     this.routin.navigate(['/datosGenerales'])
   }

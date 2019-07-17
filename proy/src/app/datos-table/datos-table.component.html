@@ -16,14 +16,19 @@
           </mat-nav-list>
           </mat-sidenav>
   <mat-sidenav-content class="body">
-  <div class="example-container mat-elevation-z8" style="position:relative; left:5%; top: 10%;">
+  <div class="prueba" style="position:relative; left:5%; top: 10%;">
     <mat-toolbar>
       <span>Inventarios</span>
       <button style="position:relative; left:3%; top: 1%" class="button" (click)="Nuevo()">Nuevo</button>
     </mat-toolbar>
   <div class="example-table-container">
-  
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscador">
+    </mat-form-field>
   <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+   
+
+
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>

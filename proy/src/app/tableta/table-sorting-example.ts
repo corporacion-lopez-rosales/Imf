@@ -1,9 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from '../auth.service';
-import { DataSource } from '@angular/cdk/table';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
 
+import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
     selector: 'table-sorting-example',
@@ -14,20 +13,26 @@ import { Router } from '@angular/router';
 
 export class TableSorting implements OnInit {
   constructor(private AuthService:AuthService, private routin:Router){  }
+  arreglo;
+
   displayedColumns: string[] = ['no_parcela','tipo','desc_par','noreste','noroeste','sureste','fecha_alta','Eliminar','Modificar'];
-  dataSource = new Prueba(this.AuthService);
+  dataSource:any;
+
 
   ngOnInit(){
-    console.log(this.AuthService.almacen);
-    this.AuthService.almacen().subscribe(result=>{
-      console.log(result);
-    },
-    error=>{
-      console.log(<any>error);
-    }
-    )
+    this.renderTable();
   }
 
+  renderTable(){
+    this.AuthService.almacen().subscribe(x=>{
+      this.dataSource=new MatTableDataSource();
+      this.dataSource.data=x;
+      console.log(this.dataSource.data);
+    },
+    error=>{
+      console.log('Este metodo no funciona');
+    });
+  }
 
   editar(element){
     this.AuthService.getForm(element);
@@ -39,21 +44,12 @@ export class TableSorting implements OnInit {
     
   }
 
-}
-
-export class Prueba extends DataSource <any>{
-    constructor(private AuthService:AuthService){
-      super();
-    }
-    
-  connect():Observable<any>{
-    return this.AuthService.almacen();
+  applyFilter(filterValue:string){
+    filterValue=filterValue.trim();
+    filterValue=filterValue.toLowerCase();
+    this.dataSource.filter=filterValue;
   }
 
-  disconnect(){
-
-  }
 }
 
 
-     

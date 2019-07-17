@@ -1,3 +1,28 @@
-<p>
-  login-entro works!
-</p>
+<p>Ejemplo de exportar</p>
+
+<button (click)="exportAsXLSX()">Prueba</button>
+
+<table>
+    <div *ngFor="let item of matriz">
+    <tr>
+        <td>{{matriz.id}}</td>
+        <td>{{matriz.idP}}</td>
+        <td>{{matriz.noPar}}</td>
+        <td>{{matriz.des}}</td>
+    </tr>
+    </div>
+</table>
+
+
+
+<input type="file"  (change)="onFileChange($event)" multiple="false" /> 
+<button id="target">Elemento Prueba</button>
+<button id="mostrar" name="button1" (click)="ocultar()">Mostrar</button>
+<button id="ocultar" name="button2" (click)="ocultar()">Ocultar</button>
+<button (click)="event()">Prueba</button>
+
+
+<label for="singleFile">Upload file</label>
+<input id="singleFile" type="file" [fileUploadInputFor]= "fileUploadQueue"/>
+<br>
+

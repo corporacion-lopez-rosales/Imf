@@ -1,36 +1,59 @@
 <br>
 <br>
-<br>
-
 <div class="form">
     <form  class="register-form" #formRegistro="ngForm" (ngSubmit)="onSubmit()" >
-      <p>Registro:</p>
+	<p id="title">Registro de nuevos usuarios</p>
+		<div class="row">
+			<div class="col-lg-4 col-md-1 col-sm-3 col-xs-1">
+				<p id="p">UserName:</p>
+			</div>
+			<div class="col-lg-5 col-md-1 col-sm-4 col-xs-1">
+				<input type="text" id="input"  placeholder="username"  name="username" required #username="ngModel" [(ngModel)]="usuario.username" minlength="5" maxlength="15" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-1 col-sm-3 col-xs-1">
+				<p id="p">Password:</p>
+			</div>
+			<div class="col-lg-5 col-md-1 col-sm-4 col-xs-1">
+				<input type="password" id="input" placeholder="password"  name="password" #password="ngModel" [(ngModel)]="usuario.password"    required/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-1 col-sm-3 col-xs-1">
+				<p id="p">Nombres:</p>
+			</div>
+			<div class="col-lg-5 col-md-1 col-sm-4 col-xs-1">
+				<input type="text" id="input" placeholder="Nombres"  name="firstname" #firstname="ngModel" [(ngModel)]="usuario.firstname"    required/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-1 col-sm-3 col-xs-1">
+				<p id="p">Apellidos:</p>
+			</div>
+			<div class="col-lg-5 col-md-1 col-sm-4 col-xs-1">
+				<input type="text" id="input"  placeholder="Apellidos"  name="lastname" #lastname="ngModel" [(ngModel)]="usuario.lastname"    required/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-1 col-sm-3 col-xs-1">
+				<p id="p">Correo:</p>
+			</div>
+			<div class="col-lg-5 col-md-1 col-sm-4 col-xs-1">
+				<input type="email" id="input" placeholder="Correo"  name="email" #email="ngModel" [(ngModel)]="usuario.email"    required/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-1 col-sm-3 col-xs-1">
+				<p id="p">Fecha:</p>
+			</div>
+			<div class="col-lg-5 col-md-2 col-sm-4 col-xs-1">
+				<input type="date"  id="input"   name="date_added" #date_added="ngModel" [(ngModel)]="usuario.date_added"    required/>
+			</div>
+		</div>
+    <br>
+      <button type="submit" value="Enviar" class="button">create</button>
+      <p id="message">Ya estas registrado <a routerLink="/login" > Iniciar sesion </a>
       
-      <p>UserName:</p>
-      <input type="text" class="ng-invalid-required"  placeholder="username"  name="username" required #username="ngModel" [(ngModel)]="usuario.username" minlength="5" maxlength="15" />
-      
-    
-      <p>Password:</p>
-      <input type="password"  placeholder="password"  name="password" #password="ngModel" [(ngModel)]="usuario.password"    required/>
-     
-    <p>Nombres:</p>
-    <input type="text"  placeholder="Nombres"  name="firstname" #firstname="ngModel" [(ngModel)]="usuario.firstname"    required/>
-    
-    <p>Apellidos:</p>
-    <input type="text"  placeholder="Apellidos"  name="lastname" #lastname="ngModel" [(ngModel)]="usuario.lastname"    required/>
-      
-    <p>Correo:</p>
-    <input type="email"  placeholder="Correo"  name="email" #email="ngModel" [(ngModel)]="usuario.email"    required/>
-     
-      <p>Fecha:</p>
-    <input type="date"    name="date_added" #date_added="ngModel" [(ngModel)]="usuario.date_added"    required/>
-
-      <button type="submit" value="Enviar">create</button>
-      <p class="message">Ya estas registrado <a routerLink="/login" > Iniciar sesion </a>
     </form>
   </div>
-  
-  
-  
-  
-  

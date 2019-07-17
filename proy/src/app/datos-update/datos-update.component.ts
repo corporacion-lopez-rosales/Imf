@@ -3,6 +3,7 @@ import {AuthService} from '../auth.service';
 import {NgForm} from '@angular/forms'; 
 import * as moment from 'moment';
 import {Router} from '@angular/router';
+import {NumeralPipe} from 'ngx-numeral';
 
 
 
@@ -41,15 +42,29 @@ export class DatosUpdateComponent implements OnInit {
   }
   x;
 
+  mun:Municipio[]=[
+    {value:"1",viewValue:'Montemorelos'},
+    {value:"2",viewValue:'Cadereyta'},
+    {value:"3",viewValue:'Salinas'},
+    {value:"4",viewValue:'Saltillo'}
+  ]
+  tipo:Tipo[]=[
+    {value:"1",viewValue:'Fracionamiento'},
+    {value:"2",viewValue:'Co-propiedad'}
+  ]
+
 
 
   ngOnInit() {
-    
+    //Usar la libraria moment para dar formato a fecha desde front 
     var date;
     this.x=this.AuthService.mostrarDatos();
     date=this.x.fecha_alta;
     let now=moment(date).format("YYYY-MM-DD");
-    
+    //formato para el valor de compa para cuando actualizas
+    var formato1;
+    formato1=new NumeralPipe(this.x.valor_compra).format('0,0');
+
     this.prueba={
       id:this.x.id,
       no_parcela:this.x.no_parcela,
@@ -68,13 +83,15 @@ export class DatosUpdateComponent implements OnInit {
       id_proveedor:this.x.id_proveedor,
       medidas:this.x.medidas,
       user_id:this.x.user_id,
-      valor_compra:this.x.valor_compra
+      valor_compra:formato1
     }
   
   }
 
 
-
+  Regresar(){
+    this.routin.navigate(['/tablaDatos'])
+  }
 
   Salir(){
     window.location.reload();
@@ -91,4 +108,17 @@ export class DatosUpdateComponent implements OnInit {
 
   }
 
+}
+
+
+export interface Municipio
+{
+  value:string;
+  viewValue:string;
+}
+
+export interface Tipo 
+{
+  value:string;
+  viewValue:string;
 }
