@@ -30,7 +30,7 @@
     "exceljs": "^1.12.2",
     "file-saver": "^2.0.2",
     "hammerjs": "^2.0.8",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jszip": "^3.2.1",
     "moment": "^2.24.0",
     "ngx-alerts": "^3.4.5",
