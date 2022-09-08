@@ -31,7 +31,7 @@
     "file-saver": "^2.0.2",
     "hammerjs": "^2.0.8",
     "jquery": "^3.4.1",
-    "jszip": "^3.2.1",
+    "jszip": "^3.7.0",
     "moment": "^2.24.0",
     "ngx-alerts": "^3.4.5",
     "ngx-moment": "^3.4.0",
